@@ -1,0 +1,197 @@
+/* pink theme notebook :) */
+
+/* Style for entire page */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    /* Make body a flex container */
+    flex-direction: column;
+    /* Stack children vertically */
+    background-color: #fff5f7;
+    /* Baby pink background */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    /* some nicer font */
+}
+
+/* Working on the main layout - notes n stuff */
+.notes {
+    flex: 1;
+    /* Take all available space, footer will stay below */
+    display: flex;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+    /* for a soft pinkish shadow */
+    overflow: hidden;
+    /* prevent notes section from overflowing */
+}
+
+/* Designing the sidebar */
+.sidebar {
+    width: 300px;
+    /* Using linear gradient painting with different colors :)*/
+    background: linear-gradient(to right,
+            #ff9ec6 0%,
+            /* Some Hot pink */
+            #ff9ec6 15px,
+            #ffcce6 15px,
+            /* Some Light pink */
+            #ffcce6 100%);
+    padding: 20px 10px 20px 30px;
+    position: relative;
+    overflow-y: auto;
+}
+
+/* Trying to show a spiral binding effect mimicing a real nbk - creating a pseudo element in sidebar to appear before its content */
+.sidebar::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    /* Creating alternate stripes - 10px tall - alternating */
+    background: repeating-linear-gradient(to bottom,
+            #ff6b9e,
+            /* Deep pink */
+            #ff6b9e 10px,
+            #ff9ec6 10px,
+            /* Medium pink */
+            #ff9ec6 20px);
+    border-radius: 4px;
+}
+
+/* Styling the add notes button */
+.add {
+    background: #ff6b9e;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 95%;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-left: 12px;
+    box-shadow: 0 4px 8px rgba(255, 107, 158, 0.3);
+    transition: all 0.3s;
+    /* Smooth transitions */
+}
+
+.add:hover {
+    background: #ff4785;
+    transform: translateY(-2px);
+    /* to Lift button 2px upward */
+    box-shadow: 0 6px 12px rgba(255, 107, 158, 0.8);
+    /* Darkening Shadow */
+}
+
+/* NOTES LIST ( The Pink Sticky Notes on side) */
+.noteslist {
+    margin-top: 10px;
+}
+
+.notes_list_item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 0 8px 8px 0;
+    border-left: 4px solid #ff6b9e;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 6px rgba(255, 107, 158, 0.1);
+}
+
+.notes_list_item:hover {
+    transform: translateX(5px);
+    background: white;
+    box-shadow: 3px 3px 10px rgba(255, 107, 158, 0.2);
+}
+
+.notes_small_title {
+    font-weight: bold;
+    color: #d6006e;
+    /* Barbie pink text */
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.notes_small_body {
+    color: #ff4785;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.notes_small_updated {
+    color: #ff85b3;
+    font-size: 0.7rem;
+    text-align: right;
+    font-style: italic;
+}
+
+/* Preview area- pink paper */
+.preview {
+    flex: 1;
+    padding: 30px;
+    background:
+        linear-gradient(to bottom, #ff9ec6 1px, transparent 1px),
+        linear-gradient(white, white);
+    background-size: 100% 28px, 100% 100%;
+    line-height: 28px;
+}
+
+.notestitle,
+.notesbody {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    padding-left: 15px;
+    color: #c70067;
+    /* Deep pink text */
+}
+
+.notestitle {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.notesbody {
+    font-size: 1.2rem;
+    resize: none;
+    line-height: 28px;
+    min-height: calc(100vh - 100px);
+}
+
+/*Some effects on focusing */
+.notestitle:focus,
+.notesbody:focus {
+    outline: none;
+    background: rgba(255, 214, 231, 0.3);
+    border-radius: 4px;
+}
+
+/* Footer styles */
+.site-footer {
+    padding: 12px;
+    background: #ff6b9e;
+    /* Barbie pink */
+    color: white;
+    text-align: center;
+    font: bold 14px/1.6 'Comic Sans MS', cursive, sans-serif;
+    border-top: 3px solid #ff9ec6;
+    box-shadow: 0 -2px 6px rgba(255, 107, 158, 0.3);
+
+    margin-top: auto;
+    /* Push footer to the bottom */
+    width: 100%;
+    /* Stretch across full width */
+}
+
+.credit {
+    color: #fff8fa;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7),
+        0 0 12px rgba(255, 107, 158, 0.6);
+    animation: glow 3s infinite ease-in-out;
+}
